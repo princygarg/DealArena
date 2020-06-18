@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBFormInline} from 'mdbreact';
 
-class i1login extends Component{
+class i2form extends Component{
     render(){
         return(
             <MDBContainer>
@@ -27,33 +27,15 @@ class i1login extends Component{
 
                       <br />
 
-                      <MDBFormInline>
-                        <h7>Interested in -   </h7>
-                        <MDBInput label='ads' type='radio' id='radio1' containerClass='mr-5' />
-                        <MDBInput label='deals' type='radio' id='radio2' containerClass='mr-5' />
-                        <MDBInput label='both' type='radio' id='radio3' containerClass='mr-5' />
-                      </MDBFormInline>
-
-                      <MDBInput label="Age" group type="number" validate />
-                      <MDBInput label="Gender" group type="text" validate />
-                      <MDBInput label="Marital Status" group type="text" validate />
-                      <MDBInput label="Occupation" group type="text" validate />
-                      <MDBInput label="Nationality" group type="text" validate />
-
-                      <div>
-                        <MDBFormInline>
-                          <MDBInput label='shoes' type='checkbox' id='checkbox1' containerClass='mr-5' />
-                          <MDBInput label='electronics' type='checkbox' id='checkbox2' containerClass='mr-5' />
-                          <MDBInput label='flights' type='checkbox' id='checkbox3' containerClass='mr-5' />
-                        </MDBFormInline>
-                      </div>
-                      
-                      {/* <p className="font-small grey-text d-flex justify-content-center">
-                        <a href="#!" className="dark-grey-text ml-1 font-weight-bold" > Forgot Password? </a>
-                      </p> */}
+                      <MDBInput label="Sub-category" group type="text" validate />
+                      <MDBInput label="Model No." group type="text" validate />
+                      <MDBInput label="Price" group type="number" validate />
+                      <MDBInput label="Color" group type="text" validate />
+                      <MDBInput label="Offer Details" group type="text" validate />
+                      <MDBInput label="Expiry Date" group type="date" validate />
 
                       <div className="text-center">
-                        <MDBBtn color="grey" rounded type="button" className="z-depth-1a" > Sign Up </MDBBtn>
+                        <MDBBtn color="grey" rounded type="button" className="z-depth-1a" > Submit </MDBBtn>
                       </div>
                     </MDBCardBody>
                   </MDBCard>
@@ -64,4 +46,4 @@ class i1login extends Component{
     }
 }
 
-export default i1login;
+export default i2form;

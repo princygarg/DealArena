@@ -8,6 +8,8 @@ class Home extends Component{
             <div>
                 <form>
                     <Button variant="btn btn-success" onClick={() => history.push('/i1login')}>User login</Button>
+
+                    <Button variant="btn btn-success" onClick={() => history.push('/i2login')}>Product Owner login</Button>
                 </form>
             </div>
         );
