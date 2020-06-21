@@ -8,7 +8,7 @@ import { Card } from 'react-bootstrap';
 import firebase from "./Config";
 import {Link} from "react-router-dom";
 
-class AddProduct extends React.Component{
+class AddProduct extends Component{
     constructor(props){
         super(props);
         this.ref=firebase.firestore().collection("Offer Details");

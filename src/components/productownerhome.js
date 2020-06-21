@@ -1,7 +1,8 @@
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import React,{Component} from 'react';
 import firebase from "./Config";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
+import history from './../history';
 
 class productownerhome extends Component{
     constructor(props){
@@ -51,11 +52,11 @@ render() {
 			  <h4 class="mb-0">Product/Service Owner Name</h4>
 			  <br></br>
 			  
-				<Link to= "./create" >
+				{/* <Link to= "/" > */}
 
-					<button class="mb-2 btn btn-outline-primary btn-sm btn-pill">
+					<button onClick={() => history.push('/addproduct')} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
 				   <i class="material-icons mr-1">Add product</i> </button>				
-				</Link>
+				{/* </Link> */}
 				   </div>
 				   </div>
 				</div>
