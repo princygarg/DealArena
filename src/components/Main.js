@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
-import {Navbar, Nav, Form, Button} from 'react-bootstrap';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import {Navbar, Nav} from 'react-bootstrap';
 
     const Main = (props) => {
         console.log(props);

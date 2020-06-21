@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {Bootstrap, Grid, Row, Col} from 'react-bootstrap' ;
+// import {Bootstrap, Grid, Row, Col} from 'react-bootstrap' ;
 
 
 
