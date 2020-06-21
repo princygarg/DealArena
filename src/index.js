@@ -8,8 +8,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 // import {Bootstrap, Grid, Row, Col} from 'react-bootstrap' ;
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
