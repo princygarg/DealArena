@@ -16,7 +16,7 @@ class i1form extends Component{
 
                     <MDBCardBody className="mx-4 mt-4">
                       
-                    <p>Interested in</p>
+                    <p>Interested in:</p>
                     <MDBFormInline>
                         <MDBInput label='Products' type='radio' id='radio1' containerClass='mr-5' />
                         <MDBInput label='Services' type='radio' id='radio2' containerClass='mr-5' />
@@ -40,8 +40,8 @@ class i1form extends Component{
                           <option value="10">Food Items</option>
                           <option value="11">Medicines</option>
                           <option value="12">Toys</option>
-                          <option value="12">Baby Care</option>
-                          <option value="12">Heavy Machinery</option>
+                          <option value="13">Baby Care</option>
+                          <option value="14">Heavy Machinery</option>
                         </select>
                       </div>
 

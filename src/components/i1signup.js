@@ -16,9 +16,9 @@ class i1signup extends Component{
                     </div>
 
                     <MDBCardBody className="mx-4 mt-4">
-                      <MDBInput label="Your name" group type="text" validate />
-                      <MDBInput label="Your email" group type="text" validate />
-                      <MDBInput label="Your password" group type="password" validate />
+                      <MDBInput label="Your Name" group type="text" validate />
+                      <MDBInput label="Your Email" group type="text" validate />
+                      <MDBInput label="Your Password" group type="password" validate />
 
                       {/* <div>
                         <p>Interested in seeing ads or publishing your own ads?</p>
@@ -47,9 +47,9 @@ class i1signup extends Component{
                       <div>
                         <h7>Select your interests: </h7>
                         <MDBFormInline>
-                          <MDBInput label='shoes' type='checkbox' id='checkbox1' containerClass='mr-5' />
-                          <MDBInput label='electronics' type='checkbox' id='checkbox2' containerClass='mr-5' />
-                          <MDBInput label='flights' type='checkbox' id='checkbox3' containerClass='mr-5' />
+                          <MDBInput label='Shoes' type='checkbox' id='checkbox1' containerClass='mr-5' />
+                          <MDBInput label='Electronics' type='checkbox' id='checkbox2' containerClass='mr-5' />
+                          <MDBInput label='Flights' type='checkbox' id='checkbox3' containerClass='mr-5' />
                         </MDBFormInline>
                       </div>
                       

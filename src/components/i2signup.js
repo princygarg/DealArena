@@ -15,10 +15,10 @@ class i2signup extends Component{
                     </div>
 
                     <MDBCardBody className="mx-4 mt-4">
-                      <MDBInput label="Your name" group type="text" validate />
-                      <MDBInput label="Your email" group type="text" validate />
-                      <MDBInput label="Your company/brand name" group type="text" validate />
-                      <MDBInput label="Your password" group type="password" validate />
+                      <MDBInput label="Your Name" group type="text" validate />
+                      <MDBInput label="Your Email" group type="text" validate />
+                      <MDBInput label="Your Company/Brand Name" group type="text" validate />
+                      <MDBInput label="Your Password" group type="password" validate />
 
                       <div className="text-center">
                         <MDBBtn color="grey" rounded type="button" className="z-depth-1a" > Sign Up </MDBBtn>
