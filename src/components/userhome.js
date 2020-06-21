@@ -1,8 +1,8 @@
 
 import React,{Component} from 'react';
 // import {Bootstrap, Grid, Row, Col} from 'react-bootstrap' ;
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'mdbreact/dist/css/mdb.css';
+// import '@fortawesome/fontawesome-free/css/all.min.css';
+// import 'mdbreact/dist/css/mdb.css';
 // import { Card } from 'react-bootstrap';
 // import {Button} from "react-bootstrap";
 import history from './../history';
