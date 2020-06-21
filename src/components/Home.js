@@ -34,7 +34,7 @@ class Home extends Component{
                         <form>
                             <Button variant="btn btn-success" onClick={() => history.push('/userhome')}>User Login</Button>
 
-                            <Button variant="btn btn-success" onClick={() => history.push('/i2signup')}>Product Owner Login</Button>
+                            <Button variant="btn btn-success" onClick={() => history.push('/productownerhome')}>Product Owner Login</Button>
                         </form>
                       </div>  
 
