@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBFormInline} from 'mdbreact';
 
-class i1login extends Component{
+class i1signup extends Component{
     render(){
         return(
             <MDBContainer>
@@ -57,7 +57,7 @@ class i1login extends Component{
                       </p> */}
 
                       <div className="text-center">
-                        <MDBBtn color="grey" rounded type="button" className="z-depth-1a" > Sign Up </MDBBtn>
+                        <MDBBtn href="/userhome" color="grey" rounded type="button" className="z-depth-1a" > Sign Up </MDBBtn>
                       </div>
                     </MDBCardBody>
                   </MDBCard>
@@ -68,4 +68,4 @@ class i1login extends Component{
     }
 }
 
-export default i1login;
+export default i1signup;

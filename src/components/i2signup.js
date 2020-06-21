@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn } from 'mdbreact';
 
-class i2login extends Component{
+class i2signup extends Component{
     render(){
         return(
             <MDBContainer>
@@ -32,4 +32,4 @@ class i2login extends Component{
     }
 }
 
-export default i2login;
+export default i2signup;
