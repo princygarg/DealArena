@@ -40,7 +40,7 @@ class userhome extends Component{
 
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -53,7 +53,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -66,7 +66,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -79,7 +79,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -92,7 +92,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -105,7 +105,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -118,7 +118,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -131,7 +131,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -144,7 +144,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -157,7 +157,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
@@ -170,7 +170,7 @@ class userhome extends Component{
               </div>
           <div class="border-top d-flex card-footer">
           <div class="card-post__author d-flex">
-            <a  class="card-post__author-avatar card-post__author-avatar--small" >
+            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
       Offer: 15% Off </a>
       <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
 
