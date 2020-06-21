@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'mdbreact/dist/css/mdb.css';
 // import { Card } from 'react-bootstrap';
 // import {Button} from "react-bootstrap";
+import history from './../history';
 
 class userhome extends Component{
     render(){
@@ -23,7 +24,7 @@ class userhome extends Component{
               <h4 class="mb-0">User/Ad-Seeker Name</h4>
               <br></br>
             
-               <button class="mb-2 btn btn-outline-primary btn-sm btn-pill">
+               <button onClick={() => history.push('/i1form')} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
                    <i class="material-icons mr-1">View Subscribed Categories</i> </button>
                    
                    </div><ul class="list-group list-group-flush"></ul></div></div>

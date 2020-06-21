@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBFormInline} from 'mdbreact';
+import history from './../history';
 
 class i1signup extends Component{
     render(){
@@ -57,7 +58,7 @@ class i1signup extends Component{
                       </p> */}
 
                       <div className="text-center">
-                        <MDBBtn href="/userhome" color="grey" rounded type="button" className="z-depth-1a" > Sign Up </MDBBtn>
+                        <MDBBtn onClick={() => history.push('/userhome')} color="grey" rounded type="button" className="z-depth-1a" > Sign Up </MDBBtn>
                       </div>
                     </MDBCardBody>
                   </MDBCard>
