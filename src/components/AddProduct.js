@@ -7,6 +7,7 @@ import React,{Component} from 'react';
 // import {Button} from "react-bootstrap";
 import firebase from "./Config";
 // import {Link} from "react-router-dom";
+import history from './../history';
 
 class AddProduct extends Component{
     constructor(props){
@@ -18,6 +19,7 @@ class AddProduct extends Component{
             Expiry:"",
             Price:"",
             Category:"",
+            Offer:"",
             
         }
     }
@@ -31,13 +33,14 @@ class AddProduct extends Component{
 
     onSubmit=(e)=>{
         e.preventDefault();
-        const {Name, Description, Expiry, Price, Category}=this.state;
+        const {Name, Description, Expiry, Price, Category, Offer}=this.state;
         this.ref.add({
             Name,
             Description,
             Expiry,
             Price,
             Category,
+            Offer,
         }).then((docRef)=>{
             this.setState({
             Name:'',
@@ -45,6 +48,7 @@ class AddProduct extends Component{
             Expiry:"",
             Price:"",
             Category:"",
+            Offer:"",
         });
         this.props.history.push("/productownerhome")
     })
@@ -56,7 +60,7 @@ class AddProduct extends Component{
 
 
     render(){
-        const {Name, Description, Expiry, Price, Category}=this.state;
+        const {Name, Description, Expiry, Price, Category, Offer}=this.state;
         
         const divStyle = {
             margin: '40px'
@@ -73,7 +77,7 @@ class AddProduct extends Component{
                 {/* </Card> */}
 
                 <div id="formbutton" className="Buttons" style={bottomStyle}>
-                    <button type="submit" class="btn btn-primary" onClick={this.onSubmit}> Show Products </button>
+                    <button type="submit" class="btn btn-primary" onClick={() => history.push('/productownerhome')}> Show Products </button>
                 </div>
 
                 <div>
@@ -110,6 +114,13 @@ class AddProduct extends Component{
                         {/* <label for="Category">Category</label> */}
                         <div class="col-sm-9">
                         <textArea class="form-control" name="Category" onChange={this.onChange} placeholder="Category">{Category}</textArea>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group row"></div>
+                        {/* <label for="Category">Category</label> */}
+                        <div class="col-sm-9">
+                        <textArea class="form-control" name="Offer" onChange={this.onChange} placeholder="Offer">{Offer}</textArea>
                         </div>
                     </div>
                 </div> 

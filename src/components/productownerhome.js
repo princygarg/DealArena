@@ -22,7 +22,7 @@ class productownerhome extends Component{
 	onCollectionUpdate=(querySnapshot)=>{
 		const offers=[];
 		querySnapshot.forEach((doc)=>{
-			const {Name, Description, Price, Expiry, Category}=doc.data();
+			const {Name, Description, Price, Expiry, Category, Offer}=doc.data();
 		offers.push({
 			key:doc.id,
 			doc,
@@ -31,6 +31,7 @@ class productownerhome extends Component{
 			Price,
 			Category,
 			Expiry,
+			Offer,
 		});
 	});
 	this.setState({offers});
@@ -110,7 +111,7 @@ render() {
 						<div class="border-top d-flex card-footer">
 							<div class="card-post__author d-flex">
 								<a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
-						Offer: 15% Off </a>
+						Offer: {offer.Offer} </a>
 						<div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Rs.{offer.Price}</span><small class="text-muted"> Offer expires {offer.Expiry}</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div>
 
 
