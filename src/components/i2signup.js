@@ -1,8 +1,49 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn } from 'mdbreact';
-import history from './../history';
+// import history from './../history';
+import firebase from "./Config";
 
 class i2signup extends Component{
+  constructor(props){
+    super(props);
+    this.ref=firebase.firestore().collection("Product Owner Details");
+    this.state={
+        Name:"",
+        Email:"",
+        Password:"",
+        BrandName:"",
+    }
+  }
+
+
+
+  onInput=(e)=>{
+    const state=this.state;
+    state[e.target.name]=e.target.value;
+    this.setState(state);
+  }
+
+  
+  onSubmit=(e)=>{
+    e.preventDefault();
+    const {    Name,Email,Password,BrandName,}=this.state;
+    this.ref.add({
+      Name,Email,Password,BrandName,
+    }).then((docRef)=>{
+        this.setState({
+        
+          Name:"",
+          Email:"",
+          Password:"",
+          BrandName:"",
+
+    });
+    this.props.history.push("/productownerhome")
+    })
+    .catch((error)=>{
+        console.error("Error adding document:",error);
+    });
+  }
     render(){
         return(
             <MDBContainer>
@@ -16,13 +57,13 @@ class i2signup extends Component{
                     </div>
 
                     <MDBCardBody className="mx-4 mt-4">
-                      <MDBInput label="Your Name" group type="text" validate />
-                      <MDBInput label="Your Email" group type="text" validate />
-                      <MDBInput label="Your Company/Brand Name" group type="text" validate />
-                      <MDBInput label="Your Password" group type="password" validate />
+                      <MDBInput label="Your Name" group type="text" name="Name" validate onChange={this.onInput}/>
+                      <MDBInput label="Your Email" group type="text" name="Email" validate onChange={this.onInput}/>
+                      <MDBInput label="Your Company/Brand Name" group type="text" name="BrandName" validate onChange={this.onInput}/>
+                      <MDBInput label="Your Password" group type="password" name="Password" validate onChange={this.onInput}/>
 
                       <div className="text-center">
-                        <MDBBtn onClick={() => history.push('/productownerhome')} color="grey" rounded type="button" className="z-depth-1a" > Sign Up </MDBBtn>
+                        <MDBBtn onClick={this.onSubmit} color="grey" rounded type="button" className="z-depth-1a" > Sign Up </MDBBtn>
                       </div>
                     </MDBCardBody>
                   </MDBCard>
