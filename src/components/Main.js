@@ -6,7 +6,7 @@ import {Navbar, Nav} from 'react-bootstrap';
         console.log(props);
         return(
             <Navbar bg="primary" variant="dark">
-            <Navbar.Brand href="#home">React Button</Navbar.Brand>
+            <Navbar.Brand href="#home">Deal Arena</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
