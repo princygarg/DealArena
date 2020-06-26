@@ -58,7 +58,7 @@ class i2signup extends Component{
 
                     <MDBCardBody className="mx-4 mt-4">
                       <MDBInput label="Your Name" group type="text" name="Name" validate onChange={this.onInput}/>
-                      <MDBInput label="Your Email" group type="text" name="Email" validate onChange={this.onInput}/>
+                      <MDBInput label="Your Email" group type="email" name="Email" validate onChange={this.onInput}/>
                       <MDBInput label="Your Company/Brand Name" group type="text" name="BrandName" validate onChange={this.onInput}/>
                       <MDBInput label="Your Password" group type="password" name="Password" validate onChange={this.onInput}/>
 

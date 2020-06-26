@@ -55,7 +55,7 @@ class userhome extends Component{
         <div class="col-lg-3"><div class="mb-4 pt-3 card card-small">
           <div class="border-bottom text-center card-header">
               <div class="mb-3 mx-auto">
-                  <img class="rounded-circle" src="" alt="" width="80"/>
+                  <img class="rounded-circle" alt="DealArena" src="" width="80"/>
               </div>
               <h4 class="mb-0">User/Ad-Seeker Name</h4>
               <br></br>
@@ -79,7 +79,7 @@ class userhome extends Component{
 						<h5 className="card-title">
 							{offer.Name}
 						</h5>
-						<img src= {offer.imageurl} width="100px" height="100px"/>
+						<img src= {offer.imageurl} alt="DealArena" width="100px" height="100px"/>
 					<h5 className="card-title"> {offer.Description}</h5>					
 
 					<h5 className="card-title">Category: {offer.Category}</h5>

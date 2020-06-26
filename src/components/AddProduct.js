@@ -93,10 +93,10 @@ class AddProduct extends Component{
         const {Name, Description, Expiry, Price, Category, Offer}=this.state;
         
         const divStyle = {
-            margin: '140px'
+            margin: '40px'
         };
         const bottomStyle = {
-            margin: '120px'
+            margin: '20px'
         };
         return(
             <div style={divStyle}>
@@ -157,7 +157,7 @@ class AddProduct extends Component{
 
                     <div>
                       <input type="file" onChange={this.handleChange} />
-                      <img src={this.state.imageurl} height="100px" width="100px"/>
+                      <img src={this.state.imageurl} alt="DealArena" height="100px" width="100px"/>
 
                     </div>
                 </div> 

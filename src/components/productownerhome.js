@@ -74,7 +74,7 @@ render() {
 						<h5 className="card-title">
 							{offer.Name}
 						</h5>
-						<img src= {offer.imageurl} width="100px" height="100px"/>
+						<img src= {offer.imageurl} alt="DealArena" width="100px" height="100px"/>
 					<h5 className="card-title"> {offer.Description}</h5>					
 
 					<h5 className="card-title">Category: {offer.Category}</h5>
