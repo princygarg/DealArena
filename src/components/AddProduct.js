@@ -20,6 +20,8 @@ class AddProduct extends Component{
             Price:"",
             Category:"",
             Offer:"",
+            imageurl:"",
+            image:null,
             
         }
     }
@@ -29,11 +31,10 @@ class AddProduct extends Component{
         state[e.target.name]=e.target.value;
         this.setState(state);
     }
-
-
     onSubmit=(e)=>{
+        console.log("hogya submit re")
         e.preventDefault();
-        const {Name, Description, Expiry, Price, Category, Offer}=this.state;
+        const {Name, Description, Expiry, Price, Category, Offer,imageurl}=this.state;
         this.ref.add({
             Name,
             Description,
@@ -41,6 +42,7 @@ class AddProduct extends Component{
             Price,
             Category,
             Offer,
+            imageurl,
         }).then((docRef)=>{
             this.setState({
             Name:'',
@@ -49,6 +51,8 @@ class AddProduct extends Component{
             Price:"",
             Category:"",
             Offer:"",
+            imageurl:"",
+
         });
         this.props.history.push("/productownerhome")
     })
@@ -57,16 +61,42 @@ class AddProduct extends Component{
     });
 
     }
+    
+
+    handleChange = (e) => {
+
+        if (e.target.files[0]) {
+           
+        this.setState({
+            image:e.target.files[0]
+        });
+
+      };
+      console.log(e.target.files[0])
+      };
+
+    handleUpload=(e)=>{
+          const {image}=this.state;
+          const uploadTask=firebase.storage().ref(`image/${image.name}`).put(this.state.image)
+          uploadTask.on("state_changed",(snapshot)=>{console.log("snapshot")},
+          (error)=>{console.log("error");},
+          ()=>{
+              firebase.storage().ref("image").child(image.name).getDownloadURL().then(imageurl=>this.setState({imageurl}))
+          })
+
+
+
+    }
 
 
     render(){
         const {Name, Description, Expiry, Price, Category, Offer}=this.state;
         
         const divStyle = {
-            margin: '40px'
+            margin: '140px'
         };
         const bottomStyle = {
-            margin: '20px'
+            margin: '120px'
         };
         return(
             <div style={divStyle}>
@@ -85,6 +115,7 @@ class AddProduct extends Component{
                         <div class="form-group row"></div>
                         {/* <label class="sol-sm-3" for="Name">Name</label> */}
                         <div class="col-sm-9">
+                      
                             <input type="text" class="form-control" name="Name" value ={Name} onChange={this.onChange} placeholder="Name"></input>
                         </div>
                     </div>
@@ -123,10 +154,18 @@ class AddProduct extends Component{
                         <textArea class="form-control" name="Offer" onChange={this.onChange} placeholder="Offer">{Offer}</textArea>
                         </div>
                     </div>
+
+                    <div>
+                      <input type="file" onChange={this.handleChange} />
+                      <img src={this.state.imageurl} height="100px" width="100px"/>
+
+                    </div>
                 </div> 
 
                 <div id="formbutton" className="Buttons" class="justify-content-between" style={bottomStyle}>
-                    <button type="submit" class="btn btn-primary" onClick={this.onSubmit}> SaveAll </button>
+                    <button type="submit" class="btn btn-primary" onClick={this.handleUpload}> Upload photo first </button>
+                    <button type="submit" class="btn btn-primary" onClick={this.onSubmit}> Save all </button>
+
                 </div>
             </div>
         )

@@ -16,13 +16,12 @@ class productownerhome extends Component{
 
 	componentDidMount(){
 		this.unsubscribe=this.ref.onSnapshot(this.onCollectionUpdate);
-
 	}
 
 	onCollectionUpdate=(querySnapshot)=>{
 		const offers=[];
 		querySnapshot.forEach((doc)=>{
-			const {Name, Description, Price, Expiry, Category, Offer}=doc.data();
+			const {Name, Description, Price, Expiry, Category, Offer,imageurl}=doc.data();
 		offers.push({
 			key:doc.id,
 			doc,
@@ -32,99 +31,69 @@ class productownerhome extends Component{
 			Category,
 			Expiry,
 			Offer,
+			imageurl,
+			
 		});
 	});
 	this.setState({offers});
-
-
 	}
 
 render() {
   return (
 		<div>
 
-<div class="row">
+<div className="row">
 		
-		<div class="col-lg-3"><div class="mb-4 pt-3 card card-small">
-		  <div class="border-bottom text-center card-header">
-			  <div class="mb-3 mx-auto">
+		<div className="col-lg-3"><div class="mb-4 pt-3 card card-small">
+		  <div className="border-bottom text-center card-header">
+			  <div className="mb-3 mx-auto">
 				  <img class="rounded-circle" src="" alt="" width="80"/>
 			  </div>
-			  <h4 class="mb-0">Product/Service Owner Name</h4>
+			  <h4 className="mb-0">Product/Service Owner Name</h4>
 			  <br></br>
 			  
-				{/* <Link to= "/" > */}
-
 					<button onClick={() => history.push('/addproduct')} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
-				   <i class="material-icons mr-1">Add product</i> </button>				
-				{/* </Link> */}
+				   <i className="material-icons mr-1">Add product</i> </button>				
+			
 				   </div>
 				   </div>
 				</div>
 		
-     <div class="col-lg-8">
-	 <div class="row">
-
-	  <div class="col-sm-5">
-		  <div class="card-post mb-4 card card-small">
-			  
-			  <div class="card-body"><h5 class="card-title">Xiomi MiA1 </h5>
-				<p class="card-text text-muted"> 4GB RAM 128 GB INTERNAL MEMORY</p>
-				
-			  </div>
-		  <div class="border-top d-flex card-footer">
-		  <div class="card-post__author d-flex">
-			<a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
-	  Offer: 15% Off </a>
-	  <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
-
-	  <div class="col-sm-5">
-		  <div class="card-post mb-4 card card-small">
-			  
-			  <div class="card-body"><h5 class="card-title">Xiomi MiA1 </h5>
-				<p class="card-text text-muted"> 4GB RAM 128 GB INTERNAL MEMORY</p>
-				
-			  </div>
-		  <div class="border-top d-flex card-footer">
-		  <div class="card-post__author d-flex">
-			<a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
-	  Offer: 15% Off </a>
-	  <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
+     <div className="col-lg-8">
+	 <div className="row">
 
 
-	  <div class="col-sm-5">
+	  
+	  <div className="col-sm-5">
 			  
 			  
 				{this.state.offers.map(offer=>
-						  <div class="card-post mb-4 card card-small">
+						  <div className="card-post mb-4 card card-small">
 
-					<div class="card-body">
-						<h5 class="card-title">
+					<div className="card-body">
+						<h5 className="card-title">
 							{offer.Name}
 						</h5>
+						<img src= {offer.imageurl} width="100px" height="100px"/>
+					<h5 className="card-title"> {offer.Description}</h5>					
 
-					<h5 class="card-title"> {offer.Description}</h5>
-					<h5 class="card-title">Category: {offer.Category}</h5>
+					<h5 className="card-title">Category: {offer.Category}</h5>
 
 						</div>
 
-						<div class="border-top d-flex card-footer">
-							<div class="card-post__author d-flex">
-								<a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
+						<div className="border-top d-flex card-footer">
+							<div className="card-post__author d-flex">
+								<a href="/" className="card-post__author-avatar card-post__author-avatar--small" >
 						Offer: {offer.Offer} </a>
-						<div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Rs.{offer.Price}</span><small class="text-muted"> Offer expires {offer.Expiry}</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div>
+						<div className="d-flex flex-column justify-content-center ml-3"><span className="card-post__author-name">Rs.{offer.Price}</span><small className="text-muted"> Offer expires {offer.Expiry}</small></div></div><div className="my-auto ml-auto"><button className="btn btn-white btn-sm"><i className="far fa-bookmark mr-1"></i> Save</button></div></div></div>
 
 
 					)
 				};
 	</div>
-
-
-
 	  </div>
 
 	  </div>
-
 
 			</div>
 		</div>

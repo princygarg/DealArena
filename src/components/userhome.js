@@ -5,9 +5,46 @@ import React,{Component} from 'react';
 // import 'mdbreact/dist/css/mdb.css';
 // import { Card } from 'react-bootstrap';
 // import {Button} from "react-bootstrap";
+import firebase from "./Config";
+
 import history from './../history';
 
 class userhome extends Component{
+  constructor(props){
+		super(props);
+		this.ref=firebase.firestore().collection("Offer Details")
+		this.unsubscribe=null;
+		this.state={
+			offers:[]
+		};
+  }
+  
+  componentDidMount(){
+		this.unsubscribe=this.ref.onSnapshot(this.onCollectionUpdate);
+  }
+
+  onCollectionUpdate=(querySnapshot)=>{
+		const offers=[];
+		querySnapshot.forEach((doc)=>{
+			const {Name, Description, Price, Expiry, Category, Offer,imageurl}=doc.data();
+		offers.push({
+			key:doc.id,
+			doc,
+			Name,
+			Description,
+			Price,
+			Category,
+			Expiry,
+			Offer,
+			imageurl,
+			
+		});
+	});
+  this.setState({offers});
+  
+}
+  
+
     render(){
   return (
     <div className="App">
@@ -27,79 +64,44 @@ class userhome extends Component{
                    <i class="material-icons mr-1">View Subscribed Categories</i> </button>
                    
                    </div><ul class="list-group list-group-flush"></ul></div></div>
-        
-     <div class="col-lg-8">
-     <div class="row">
-
-      <div class="col-sm-5">
-          <div class="card-post mb-4 card card-small">
-              
-              <div class="card-body"><h5 class="card-title">Xiomi MiA1 </h5>
-                <p class="card-text text-muted"> 4GB RAM 128 GB INTERNAL MEMORY</p>
-                
-              </div>
-          <div class="border-top d-flex card-footer">
-          <div class="card-post__author d-flex">
-            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
-      Offer: 15% Off </a>
-      <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
-
-      <div class="col-sm-5">
-          <div class="card-post mb-4 card card-small">
-              
-              <div class="card-body"><h5 class="card-title">Xiomi MiA1 </h5>
-                <p class="card-text text-muted"> 4GB RAM 128 GB INTERNAL MEMORY</p>
-                
-              </div>
-          <div class="border-top d-flex card-footer">
-          <div class="card-post__author d-flex">
-            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
-      Offer: 15% Off </a>
-      <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
-
-      <div class="col-sm-5">
-          <div class="card-post mb-4 card card-small">
-              
-              <div class="card-body"><h5 class="card-title">Xiomi MiA1 </h5>
-                <p class="card-text text-muted"> 4GB RAM 128 GB INTERNAL MEMORY</p>
-                
-              </div>
-          <div class="border-top d-flex card-footer">
-          <div class="card-post__author d-flex">
-            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
-      Offer: 15% Off </a>
-      <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
-
-   
-      <div class="col-sm-5">
-          <div class="card-post mb-4 card card-small">
-              
-              <div class="card-body"><h5 class="card-title">Xiomi MiA1 </h5>
-                <p class="card-text text-muted"> 4GB RAM 128 GB INTERNAL MEMORY</p>
-                
-              </div>
-          <div class="border-top d-flex card-footer">
-          <div class="card-post__author d-flex">
-            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
-      Offer: 15% Off </a>
-      <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
-
-      <div class="col-sm-5">
-          <div class="card-post mb-4 card card-small">
-              
-              <div class="card-body"><h5 class="card-title">Xiomi MiA1 </h5>
-                <p class="card-text text-muted"> 4GB RAM 128 GB INTERNAL MEMORY</p>
-                
-              </div>
-          <div class="border-top d-flex card-footer">
-          <div class="card-post__author d-flex">
-            <a href="/" class="card-post__author-avatar card-post__author-avatar--small" >
-      Offer: 15% Off </a>
-      <div class="d-flex flex-column justify-content-center ml-3"><span class="card-post__author-name">Buy Now</span><small class="text-muted"> Offer expires 6th July 2020</small></div></div><div class="my-auto ml-auto"><button class="btn btn-white btn-sm"><i class="far fa-bookmark mr-1"></i> Save</button></div></div></div></div>
+                   <div className="col-lg-8">
+	 <div className="row">
 
 
-      </div>
-      </div>
+	  
+	  <div className="col-sm-5">
+			  
+			  
+				{this.state.offers.map(offer=>
+						  <div className="card-post mb-4 card card-small">
+
+					<div className="card-body">
+						<h5 className="card-title">
+							{offer.Name}
+						</h5>
+						<img src= {offer.imageurl} width="100px" height="100px"/>
+					<h5 className="card-title"> {offer.Description}</h5>					
+
+					<h5 className="card-title">Category: {offer.Category}</h5>
+
+						</div>
+
+						<div className="border-top d-flex card-footer">
+							<div className="card-post__author d-flex">
+								<a href="/" className="card-post__author-avatar card-post__author-avatar--small" >
+						Offer: {offer.Offer} </a>
+						<div className="d-flex flex-column justify-content-center ml-3"><span className="card-post__author-name">Rs.{offer.Price}</span><small className="text-muted"> Offer expires {offer.Expiry}</small></div></div><div className="my-auto ml-auto"><button className="btn btn-white btn-sm"><i className="far fa-bookmark mr-1"></i> Save</button></div></div></div>
+
+
+					)
+				};
+	</div>
+	  </div>
+
+	  </div>
+
+
+     
 
       </div>
 
