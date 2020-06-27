@@ -26,23 +26,29 @@ class i2signup extends Component{
   
   onSubmit=(e)=>{
     e.preventDefault();
-    const {    Name,Email,Password,BrandName,}=this.state;
+    const { Name,Email,Password,BrandName }=this.state;
     this.ref.add({
-      Name,Email,Password,BrandName,
+      Name,Email,Password,BrandName
     }).then((docRef)=>{
         this.setState({
         
           Name:"",
           Email:"",
           Password:"",
-          BrandName:"",
+          BrandName:""
 
     });
-    this.props.history.push("/productownerhome")
+      console.log("success");
     })
     .catch((error)=>{
-        console.error("Error adding document:",error);
+      console.error("Error adding document:",error);
     });
+    firebase.auth().createUserWithEmailAndPassword(this.state.Email,this.state.Password).then((u)=>{
+      this.props.history.push("/productownerhome");
+    }).catch((err)=>{
+      console.log(err);
+    })
+
   }
     render(){
         return(

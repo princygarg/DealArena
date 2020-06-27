@@ -10,43 +10,51 @@ import firebase from "./Config";
 import history from './../history';
 
 class userhome extends Component{
-  constructor(props){
+	constructor(props){
 		super(props);
 		this.ref=firebase.firestore().collection("Offer Details")
 		this.unsubscribe=null;
 		this.state={
 			offers:[]
 		};
-  }
+	}
   
-  componentDidMount(){
+	componentDidMount(){
 		this.unsubscribe=this.ref.onSnapshot(this.onCollectionUpdate);
-  }
+	}
 
-  onCollectionUpdate=(querySnapshot)=>{
+	onCollectionUpdate=(querySnapshot)=>{
 		const offers=[];
 		querySnapshot.forEach((doc)=>{
 			const {Name, Description, Price, Expiry, Category, Offer,imageurl}=doc.data();
-		offers.push({
-			key:doc.id,
-			doc,
-			Name,
-			Description,
-			Price,
-			Category,
-			Expiry,
-			Offer,
-			imageurl,
-			
+			offers.push({
+				key:doc.id,
+				doc,
+				Name,
+				Description,
+				Price,
+				Category,
+				Expiry,
+				Offer,
+				imageurl,
+				
+			});
 		});
-	});
-  this.setState({offers});
+		this.setState({offers});
+	}
   
-}
-  
+  	logout(){
+		firebase.auth().signOut().then((u)=>{
+			console.log("zzzzzzzzz");
+			this.props.history.push("/");
+		})
+		.catch((err)=>{
+			console.log(err);
+		});
+	}
 
     render(){
-  return (
+  	return (
     <div className="App">
         <div><br></br></div>
 
@@ -62,6 +70,9 @@ class userhome extends Component{
             
                <button onClick={() => history.push('/i1form')} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
                    <i class="material-icons mr-1">View Subscribed Categories</i> </button>
+
+				<button onClick={this.logout} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
+                   <i class="material-icons mr-1">LogOut</i> </button>
                    
                    </div><ul class="list-group list-group-flush"></ul></div></div>
                    <div className="col-lg-8">

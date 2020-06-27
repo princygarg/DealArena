@@ -2,8 +2,45 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import history from './../history';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput} from 'mdbreact';
+import firebase from "./Config";
 
 class Home extends Component{
+  constructor(props)
+    {
+        super(props);
+        this.login1 = this.login1.bind(this);
+        this.login2 = this.login2.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.state={
+            Email : "",
+            Password : ""
+        }
+    }
+
+    login2(e){
+      e.preventDefault();
+      firebase.auth().signInWithEmailAndPassword(this.state.Email,this.state.Password).then((u)=>{
+        this.props.history.push("/userhome");
+      }).catch((err)=>{
+        console.log(err);
+      });
+    }
+
+    login1(e){
+        e.preventDefault();
+        firebase.auth().signInWithEmailAndPassword(this.state.Email,this.state.Password).then((u)=>{
+          this.props.history.push("/productownerhome");
+        }).catch((err)=>{
+          console.log(err);
+        });
+    }
+
+    handleChange=(e)=>{
+      const state=this.state;
+      state[e.target.name]=e.target.value;
+      this.setState(state);
+    }
+
     render(){
         return(
             <MDBContainer>
@@ -17,8 +54,8 @@ class Home extends Component{
                     </div>
 
                     <MDBCardBody className="mx-4 mt-4">
-                      <MDBInput label="Your Email" group type="text" validate />
-                      <MDBInput label="Your Password" group type="password" validate />
+                      <MDBInput label="Your Email" group type="text" name="Email" onChange={this.handleChange} validate />
+                      <MDBInput label="Your Password" group type="password" name="Password" onChange={this.handleChange} validate />
 
                       {/* <div>
                         <p>Log-in as:</p>
@@ -32,9 +69,9 @@ class Home extends Component{
 
                       <div>
                         <form>
-                            <Button variant="btn btn-success" onClick={() => history.push('/userhome')}>User Login</Button>
+                            <Button variant="btn btn-success" onClick={this.login2}>User Login</Button>
 
-                            <Button variant="btn btn-success" onClick={() => history.push('/productownerhome')}>Product Owner Login</Button>
+                            <Button variant="btn btn-success" onClick={this.login1}>Product Owner Login</Button>
                         </form>
                       </div>  
 

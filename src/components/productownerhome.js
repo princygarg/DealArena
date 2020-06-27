@@ -38,22 +38,35 @@ class productownerhome extends Component{
 	this.setState({offers});
 	}
 
+	logout(){
+		firebase.auth().signOut().then((u)=>{
+			console.log("zzzzzzzzz");
+			this.props.history.push("/");
+		})
+		.catch((err)=>{
+			console.log(err);
+		});
+	}
+
 render() {
   return (
 		<div>
 
 <div className="row">
 		
-		<div className="col-lg-3"><div class="mb-4 pt-3 card card-small">
+		<div className="col-lg-3"><div className="mb-4 pt-3 card card-small">
 		  <div className="border-bottom text-center card-header">
 			  <div className="mb-3 mx-auto">
-				  <img class="rounded-circle" src="" alt="" width="80"/>
+				  <img className="rounded-circle" src="" alt="" width="80"/>
 			  </div>
 			  <h4 className="mb-0">Product/Service Owner Name</h4>
 			  <br></br>
 			  
-					<button onClick={() => history.push('/addproduct')} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
-				   <i className="material-icons mr-1">Add product</i> </button>				
+					<button onClick={() => history.push('/addproduct')} className="mb-2 btn btn-outline-primary btn-sm btn-pill">
+				   <i className="material-icons mr-1">Add product</i> </button>	
+
+				   <button onClick={this.logout} className="mb-2 btn btn-outline-primary btn-sm btn-pill">
+				   <i className="material-icons mr-1">LogOut</i> </button>				
 			
 				   </div>
 				   </div>

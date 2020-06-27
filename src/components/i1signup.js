@@ -31,15 +31,9 @@ class i1signup extends Component{
   
   onSubmit=(e)=>{
     e.preventDefault();
-    const {    Name,Email,Password,Age,Gender,
-    MaritalStatus,
-    Occupation,
-    Nationality,}=this.state;
+    const { Name,Email,Password,Age,Gender,MaritalStatus,Occupation,Nationality}=this.state;
     this.ref.add({
-      Name,Email,Password,Age,Gender,
-      MaritalStatus,
-      Occupation,
-      Nationality,
+      Name,Email,Password,Age,Gender,MaritalStatus,Occupation,Nationality
     }).then((docRef)=>{
         this.setState({
         
@@ -53,11 +47,16 @@ class i1signup extends Component{
           Nationality:"",
 
     });
-    this.props.history.push("/userhome")
+    console.log("success");
     })
     .catch((error)=>{
         console.error("Error adding document:",error);
     });
+    firebase.auth().createUserWithEmailAndPassword(this.state.Email,this.state.Password).then((u)=>{
+      this.props.history.push("/userhome");
+    }).catch((err)=>{
+      console.log(err);
+    })
   }
 
     render(){
