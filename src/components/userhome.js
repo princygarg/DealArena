@@ -1,10 +1,6 @@
 
 import React,{Component} from 'react';
-// import {Bootstrap, Grid, Row, Col} from 'react-bootstrap' ;
-// import '@fortawesome/fontawesome-free/css/all.min.css';
-// import 'mdbreact/dist/css/mdb.css';
-// import { Card } from 'react-bootstrap';
-// import {Button} from "react-bootstrap";
+import Sidebar from "./sidebar.js"
 import firebase from "./Config";
 
 import history from './../history';
@@ -20,20 +16,31 @@ class userhome extends Component{
 	}
   
 	componentDidMount(){
-		this.unsubscribe=this.ref.onSnapshot(this.onCollectionUpdate);
+		const params = new URLSearchParams(this.props.location.search);
+
+		const category = params.get("category");
+		var offers = firebase.firestore().collection("Offer Details");
+		if (category) offers = offers.where("category", "==", category);
+		offers
+		  .get()
+		  .then((querySnapshot) => {
+			const data = querySnapshot.docs.map((doc) => doc.data());
+			this.setState({ offers: data }); // array 
+		  })
+		  .catch((err) => console.log(err));
 	}
 
 	onCollectionUpdate=(querySnapshot)=>{
 		const offers=[];
 		querySnapshot.forEach((doc)=>{
-			const {Name, Description, Price, Expiry, Category, Offer,imageurl}=doc.data();
+			const {Name, Description, Price, Expiry, category, Offer,imageurl}=doc.data();
 			offers.push({
 				key:doc.id,
 				doc,
 				Name,
 				Description,
 				Price,
-				Category,
+				category,
 				Expiry,
 				Offer,
 				imageurl,
@@ -93,7 +100,7 @@ class userhome extends Component{
 						<img src= {offer.imageurl} alt="DealArena" width="100px" height="100px"/>
 					<h5 className="card-title"> {offer.Description}</h5>					
 
-					<h5 className="card-title">Category: {offer.Category}</h5>
+					<h5 className="card-title">Category: {offer.category}</h5>
 
 						</div>
 
@@ -105,9 +112,12 @@ class userhome extends Component{
 
 
 					)
-				};
+				}
 	</div>
+	<Sidebar/>
+
 	  </div>
+
 
 	  </div>
 
@@ -115,8 +125,6 @@ class userhome extends Component{
      
 
       </div>
-
-      
 
 </div>
   );
