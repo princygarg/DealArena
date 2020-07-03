@@ -50,15 +50,15 @@ class userhome extends Component{
 		this.setState({offers});
 	}
   
-  	logout(){
-		firebase.auth().signOut().then((u)=>{
-			console.log("zzzzzzzzz");
-			this.props.history.push("/");
-		})
-		.catch((err)=>{
-			console.log(err);
-		});
-	}
+  	// logout(){
+	// 	firebase.auth().signOut().then((u)=>{
+	// 		console.log("zzzzzzzzz");
+	// 		this.props.history.push("/");
+	// 	})
+	// 	.catch((err)=>{
+	// 		console.log(err);
+	// 	});
+	// }
 
     render(){
   	return (
@@ -78,8 +78,8 @@ class userhome extends Component{
                <button onClick={() => history.push('/i1form')} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
                    <i class="material-icons mr-1">View Subscribed Categories</i> </button>
 
-				<button onClick={this.logout} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
-                   <i class="material-icons mr-1">LogOut</i> </button>
+				{/* <button onClick={this.logout} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
+                   <i class="material-icons mr-1">LogOut</i> </button> */}
                    
                    </div><ul class="list-group list-group-flush"></ul></div></div>
                    <div className="col-lg-8">

@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import firebase from "./Config";
+// import firebase from "./Config";
 
-import history from './../history';
+// import history from './../history';
 
 class Sidebar extends Component{
 
