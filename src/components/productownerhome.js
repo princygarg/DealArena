@@ -7,7 +7,8 @@ import history from './../history';
 class productownerhome extends Component{
     constructor(props){
 		super(props);
-		this.ref=firebase.firestore().collection("Offer Details")
+		this.ref=firebase.firestore().collection("Offer Details");
+		this.logout = this.logout.bind(this);
 		this.unsubscribe=null;
 		this.state={
 			offers:[]
@@ -15,6 +16,7 @@ class productownerhome extends Component{
 	}
 
 	componentDidMount(){
+		this.checkAuth();
 		this.unsubscribe=this.ref.onSnapshot(this.onCollectionUpdate);
 	}
 
@@ -38,15 +40,37 @@ class productownerhome extends Component{
 	this.setState({offers});
 	}
 
-	// logout(){
-	// 	firebase.auth().signOut().then((u)=>{
-	// 		console.log("zzzzzzzzz");
-	// 		this.props.history.push("/");
-	// 	})
-	// 	.catch((err)=>{
-	// 		console.log(err);
-	// 	});
-	// }
+	checkAuth(){
+		var user = firebase.auth().currentUser;
+		if(user){
+			console.log("User "+user.uid+" is logged in with");
+		}
+		else{
+			console.log("Successfully logged out");
+			history.push("/");
+		}
+		// firebase.auth().onAuthStateChanged((user)=>{
+		// 	if(user)
+		// 	{
+		// 	  this.setState({user})
+		// 	}
+		// 	else{
+		// 	  this.setState({user : null})
+		// 	}
+		//   })
+	}
+
+	logout(){
+		firebase.auth().signOut()
+		.then(function(){
+			// console.log("zzzzzzzzz");
+			// this.props.history.push("/home");
+			history.push("/");
+		})
+		.catch(function(error){
+			console.log(error);
+		});
+	}
 
 render() {
   return (
@@ -65,8 +89,8 @@ render() {
 					<button onClick={() => history.push('/addproduct')} className="mb-2 btn btn-outline-primary btn-sm btn-pill">
 				   <i className="material-icons mr-1">Add product</i> </button>	
 
-				   {/* <button onClick={this.logout} className="mb-2 btn btn-outline-primary btn-sm btn-pill">
-				   <i className="material-icons mr-1">LogOut</i> </button>				 */}
+				   <button onClick={this.logout} className="mb-2 btn btn-outline-primary btn-sm btn-pill">
+				   <i className="material-icons mr-1">LogOut</i> </button>				
 			
 				   </div>
 				   </div>
