@@ -42,27 +42,23 @@ class productownerhome extends Component{
 
 	checkAuth(){
 		var user = firebase.auth().currentUser;
-		if(user){
+		if(localStorage.getItem('usersession')){
+
+		}
+		else if(user){
+			localStorage.setItem('usersession', user);
 			console.log("User "+user.uid+" is logged in with");
 		}
 		else{
 			console.log("Successfully logged out");
 			history.push("/");
 		}
-		// firebase.auth().onAuthStateChanged((user)=>{
-		// 	if(user)
-		// 	{
-		// 	  this.setState({user})
-		// 	}
-		// 	else{
-		// 	  this.setState({user : null})
-		// 	}
-		//   })
 	}
 
 	logout(){
 		firebase.auth().signOut()
 		.then(function(){
+			localStorage.removeItem('usersession');
 			// console.log("zzzzzzzzz");
 			// this.props.history.push("/home");
 			history.push("/");
