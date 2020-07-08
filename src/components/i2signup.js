@@ -55,7 +55,7 @@ class i2signup extends Component{
           name:name,
           brand:brand,
         });
-        history.push("productownerhome");
+        history.push("/productownerhome");
 
       }
 
