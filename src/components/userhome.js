@@ -23,7 +23,7 @@ class userhome extends Component{
 
 		const category = params.get("category");
 		var offers = firebase.firestore().collection("offerDetails");
-		if (category) offers = offers.where("category", "==", category);
+		if (category) offers = offers.where("Category", "==", category);
 		offers
 		  .get()
 		  .then((querySnapshot) => {
