@@ -7,7 +7,7 @@ import history from './../history';
 class productownerhome extends Component{
     constructor(props){
 		super(props);
-		this.ref=firebase.firestore().collection("Offer Details");
+		//this.ref=firebase.firestore().collection("offerDetails");
 		this.logout = this.logout.bind(this);
 		this.unsubscribe=null;
 		this.state={
@@ -17,17 +17,45 @@ class productownerhome extends Component{
 
 	componentDidMount(){
 		this.checkAuth();
-		this.unsubscribe=this.ref.onSnapshot(this.onCollectionUpdate);
+		firebase.auth().onAuthStateChanged((productowner)=> {
+
+
+			if (productowner) {
+			
+			  console.log(productowner.uid);
+
+			  firebase.firestore().collection("productOwnerDetails").doc(productowner.uid)
+				.get()
+				.then((doc)=> {
+				  console.log("Document data:", doc.data().name);
+				  console.log("Document data:", doc.data().brand);
+				  this.setState({brand : doc.data().brand})
+				}).then((doc)=>{
+					this.ref=firebase.firestore().collection("offerDetails").where("Brand","==",this.state.brand);
+					this.unsubscribe=this.ref.onSnapshot(this.onCollectionUpdate);
+
+
+				})
+				.catch(function(error){
+				  console.log("Error getting document:", error);
+				  console.log(productowner.id)
+				})
+			}
+		}
+	)
+	console.log("yo")
+		history.push("productownerhome");
 	}
 
 	onCollectionUpdate=(querySnapshot)=>{
 		const offers=[];
 		querySnapshot.forEach((doc)=>{
-			const {Name, Description, Price, Expiry, Category, Offer,imageurl}=doc.data();
+			const {Name, Description,Brand, Price, Expiry, Category, Offer,imageurl}=doc.data();
 		offers.push({
 			key:doc.id,
 			doc,
 			Name,
+			Brand,
 			Description,
 			Price,
 			Category,
@@ -38,29 +66,34 @@ class productownerhome extends Component{
 		});
 	});
 	this.setState({offers});
+	//this.ref=firebase.firestore().collection("offerDetails").where("Brand","==",this.state.brand);
+
 	}
 
 	checkAuth(){
-		var user = firebase.auth().currentUser;
+		var produser = firebase.auth().currentUser;
 		if(localStorage.getItem('usersession')){
 
 		}
-		else if(user){
-			localStorage.setItem('usersession', user);
-			console.log("User "+user.uid+" is logged in with");
+		else if(produser){
+			localStorage.setItem('usersession', produser);
+			console.log("User "+produser.uid+" is logged in with");
+			history.push("/productownerhome");
+
 		}
 		else{
 			console.log("Successfully logged out");
 			history.push("/");
 		}
+
+
 	}
 
 	logout(){
 		firebase.auth().signOut()
 		.then(function(){
 			localStorage.removeItem('usersession');
-			// console.log("zzzzzzzzz");
-			// this.props.history.push("/home");
+			console.log("zzzzzzzzz");
 			history.push("/");
 		})
 		.catch(function(error){
@@ -79,7 +112,7 @@ render() {
 			  <div className="mb-3 mx-auto">
 				  <img className="rounded-circle" src="" alt="" width="80"/>
 			  </div>
-			  <h4 className="mb-0">Product/Service Owner Name</h4>
+			  <h4 className="mb-0" id="brand">{this.state.brand}</h4>
 			  <br></br>
 			  
 					<button onClick={() => history.push('/addproduct')} className="mb-2 btn btn-outline-primary btn-sm btn-pill">

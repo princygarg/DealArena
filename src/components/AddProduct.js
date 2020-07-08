@@ -12,7 +12,7 @@ import history from './../history';
 class AddProduct extends Component{
     constructor(props){
         super(props);
-        this.ref=firebase.firestore().collection("Offer Details");
+        this.ref=firebase.firestore().collection("offerDetails");
         this.state={
             Name:"",
             Description:"",
@@ -21,6 +21,7 @@ class AddProduct extends Component{
             Category:"",
             Offer:"",
             imageurl:"",
+            Brand:"",
             image:null,
             
         }
@@ -34,9 +35,10 @@ class AddProduct extends Component{
     onSubmit=(e)=>{
         console.log("hogya submit re")
         e.preventDefault();
-        const {Name, Description, Expiry, Price, Category, Offer,imageurl}=this.state;
+        const {Name, Description, Expiry, Price, Category, Brand,Offer,imageurl}=this.state;
         this.ref.add({
             Name,
+            Brand,
             Description,
             Expiry,
             Price,
@@ -46,6 +48,7 @@ class AddProduct extends Component{
         }).then((docRef)=>{
             this.setState({
             Name:'',
+            Brand:"",
             Description:"",
             Expiry:"",
             Price:"",
@@ -90,7 +93,7 @@ class AddProduct extends Component{
 
 
     render(){
-        const {Name, Description, Expiry, Price, Category, Offer}=this.state;
+        const {Name, Description, Expiry, Price, Category,Brand, Offer}=this.state;
         
         const divStyle = {
             margin: '40px'
@@ -118,6 +121,10 @@ class AddProduct extends Component{
                       
                             <input type="text" class="form-control" name="Name" value ={Name} onChange={this.onChange} placeholder="Name"></input>
                         </div>
+                        <div class="col-sm-9">
+                      
+                        <input type="text" class="form-control" name="Brand" value ={Brand} onChange={this.onChange} placeholder="Brand"></input>
+                    </div>
                     </div>
                     <div>
                         <div class="form-group row"></div>
