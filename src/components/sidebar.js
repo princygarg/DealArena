@@ -13,19 +13,19 @@ class Sidebar extends Component{
               <li>
                 <a href="/userhome?category=Electronics" className="d-flex">
                   <p>Electronics </p>
-                  <p> (1)</p>
+                  <p> </p>
                 </a>
               </li>
               <li>
                 <a href="/userhome?category=Flights" className="d-flex">
                   <p>Flights</p>
-                  <p> (1)</p>
+                  <p> </p>
                 </a>
               </li>
               <li>
                 <a href="/userhome?category=Footwear" className="d-flex">
                   <p>Footwear</p>
-                  <p> (1)</p>
+                  <p> </p>
                 </a>
               </li>
             </ul>
