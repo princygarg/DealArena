@@ -1,8 +1,4 @@
-// import '@fortawesome/fontawesome-free/css/all.min.css';
-// import 'bootstrap-css-only/css/bootstrap.min.css';
-// import 'mdbreact/dist/css/mdb.css';
 import React,{Component} from 'react';
-// import '../App.css';
 // import { Card } from 'react-bootstrap';
 // import {Button} from "react-bootstrap";
 import firebase from "./Config";
@@ -32,6 +28,7 @@ class AddProduct extends Component{
         state[e.target.name]=e.target.value;
         this.setState(state);
     }
+
     onSubmit=(e)=>{
         console.log("hogya submit re")
         e.preventDefault();
@@ -62,14 +59,10 @@ class AddProduct extends Component{
     .catch((error)=>{
         console.error("Error adding document:",error);
     });
-
     }
     
-
     handleChange = (e) => {
-
-        if (e.target.files[0]) {
-           
+        if (e.target.files[0]) {     
         this.setState({
             image:e.target.files[0]
         });
@@ -86,11 +79,7 @@ class AddProduct extends Component{
           ()=>{
               firebase.storage().ref("image").child(image.name).getDownloadURL().then(imageurl=>this.setState({imageurl}))
           })
-
-
-
     }
-
 
     render(){
         const {Name, Description, Expiry, Price, Category,Brand, Offer}=this.state;
@@ -116,7 +105,6 @@ class AddProduct extends Component{
                 <div>
                     <div>
                         <div class="form-group row"></div>
-                        {/* <label class="sol-sm-3" for="Name">Name</label> */}
                         <div class="col-sm-9">
                       
                             <input type="text" class="form-control" name="Name" value ={Name} onChange={this.onChange} placeholder="Name"></input>
@@ -128,35 +116,30 @@ class AddProduct extends Component{
                     </div>
                     <div>
                         <div class="form-group row"></div>
-                        {/* <label for="Description">Description:</label> */}
                         <div class="col-sm-9">
                         <textArea class="form-control" name="Description"  onChange={this.onChange} placeholder="Description">{Description}</textArea>
                         </div>
                     </div>
                     <div>
                         <div class="form-group row"></div>
-                        {/* <label for="description">Price</label> */}
                         <div class="col-sm-9">
                         <textArea class="form-control" name="Price" onChange={this.onChange} placeholder="Price">{Price}</textArea>
                         </div>
                     </div>
                     <div>
                         <div class="form-group row"></div>
-                        {/* <label for="Expiry">Expiry</label> */}
                         <div class="col-sm-9">
                         <textArea class="form-control" name="Expiry" onChange={this.onChange} placeholder="Expiry">{Expiry}</textArea>
                         </div>
                     </div>
                     <div>
                         <div class="form-group row"></div>
-                        {/* <label for="Category">Category</label> */}
                         <div class="col-sm-9">
                         <textArea class="form-control" name="Category" onChange={this.onChange} placeholder="Category">{Category}</textArea>
                         </div>
                     </div>
                     <div>
                         <div class="form-group row"></div>
-                        {/* <label for="Category">Category</label> */}
                         <div class="col-sm-9">
                         <textArea class="form-control" name="Offer" onChange={this.onChange} placeholder="Offer">{Offer}</textArea>
                         </div>

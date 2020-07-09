@@ -3,7 +3,6 @@ import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, M
 // import history from './../history';
 import firebase from "./Config";
 
-
 class i1signup extends Component{
 
   constructor(props){
@@ -21,15 +20,12 @@ class i1signup extends Component{
     }
   }
 
-
-
   onInput=(e)=>{
     const state=this.state;
     state[e.target.name]=e.target.value;
     this.setState(state);
   }
-
-  
+ 
   onSubmit=(e)=>{
     
     const x=document.getElementById("name").value
@@ -110,8 +106,6 @@ class i1signup extends Component{
                         </MDBFormInline>
                       </div>
                       
-               
-
                       <div className="text-center">
                         <MDBBtn  onClick={this.onSubmit} color="grey" rounded type="button" className="z-depth-1a" > Sign Up </MDBBtn>
                       </div>

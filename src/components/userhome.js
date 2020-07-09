@@ -1,11 +1,10 @@
-
 import React,{Component} from 'react';
 import Sidebar from "./sidebar.js"
 import firebase from "./Config";
 import history from './../history';
 
-
 var db=firebase.firestore()
+
 class userhome extends Component{
 	
 	constructor(props){
@@ -23,7 +22,7 @@ class userhome extends Component{
 
 		const category = params.get("category");
 		var offers = firebase.firestore().collection("offerDetails");
-		if (category) offers = offers.where("category", "==", category);
+		if (category) offers = offers.where("Category", "==", category);
 		offers
 		  .get()
 		  .then((querySnapshot) => {
@@ -31,7 +30,6 @@ class userhome extends Component{
 			this.setState({ offers: data }); // array 
 		  })
 		  .catch((err) => console.log(err));
-
 
 		  firebase.auth().onAuthStateChanged((user)=> {
 			if (user) {
@@ -42,7 +40,6 @@ class userhome extends Component{
 				  console.log("Document data:", doc.data().name);
 				  console.log("Document data:", doc.data().interests);
 				  document.getElementById("username").innerHTML = doc.data().name ;
-				  // Getting value from firebase
 				})
 				.catch(function(error) {
 				
@@ -90,7 +87,6 @@ class userhome extends Component{
 			console.log("Successfully logged out");
 			history.push("/");
 		}
-
 	}
   
   	logout(){
@@ -113,7 +109,7 @@ class userhome extends Component{
         <div class="col-lg-3"><div class="mb-4 pt-3 card card-small">
           <div class="border-bottom text-center card-header">
               
-	  <h4 class="mb-0" id="username">Name of User </h4>
+	  <h4 class="mb-0" id="username">Name of User</h4>
               <br></br>
             
                <button onClick={() => history.push('/i1form')} class="mb-2 btn btn-outline-primary btn-sm btn-pill">
@@ -126,8 +122,7 @@ class userhome extends Component{
                    <div className="col-lg-8">
 	 <div className="row">
 
-	  <div className="col-sm-5">
-			  
+	  <div className="col-sm-5">		  
 			  
 				{this.state.offers.map(offer=>
 						  <div className="card-post mb-4 card card-small">
@@ -160,7 +155,6 @@ class userhome extends Component{
 
 </div>
   );
-
     }
   }
 

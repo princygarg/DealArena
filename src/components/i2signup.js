@@ -15,18 +15,14 @@ class i2signup extends Component{
     }
   }
 
-
-
   onInput=(e)=>{
     const state=this.state;
     state[e.target.name]=e.target.value;
     this.setState(state);
   }
-
-  
+ 
   onSubmit=(e)=>{
 
-    
     const name=document.getElementById("name").value
     const brand=document.getElementById("brand").value
 
@@ -55,20 +51,15 @@ class i2signup extends Component{
           name:name,
           brand:brand,
         });
-        history.push("productownerhome");
+        history.push("/productownerhome");
 
       }
-
-
-
-
 
       }).catch((err)=>{
       console.log(err);
     })
 
     history.push("/productownerhome");
-
 
   }
     render(){

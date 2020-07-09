@@ -105,3 +105,20 @@ class i1form extends Component{
 }
 
 export default i1form;
+
+
+// import DropdownHOC from "./DropdownHOC.js";
+// import data from "./data.json";
+// import React, {Component} from "react";
+
+// class i1form extends Component {
+//   render(){
+//     return (
+//       <div>
+//         <DropdownHOC data={data} />
+//       </div>
+//     );
+//   }
+// }
+
+// export default i1form;

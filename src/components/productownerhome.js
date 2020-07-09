@@ -34,7 +34,6 @@ class productownerhome extends Component{
 					this.ref=firebase.firestore().collection("offerDetails").where("Brand","==",this.state.brand);
 					this.unsubscribe=this.ref.onSnapshot(this.onCollectionUpdate);
 
-
 				})
 				.catch(function(error){
 				  console.log("Error getting document:", error);
@@ -86,7 +85,6 @@ class productownerhome extends Component{
 			history.push("/");
 		}
 
-
 	}
 
 	logout(){
@@ -127,11 +125,8 @@ render() {
 		
      <div className="col-lg-8">
 	 <div className="row">
-
-
 	  
-	  <div className="col-sm-5">
-			  
+	  <div className="col-sm-5">		  
 			  
 				{this.state.offers.map(offer=>
 						  <div className="card-post mb-4 card card-small">
@@ -153,7 +148,6 @@ render() {
 						Offer: {offer.Offer} </a>
 						<div className="d-flex flex-column justify-content-center ml-3"><span className="card-post__author-name">Rs.{offer.Price}</span><small className="text-muted"> Offer expires {offer.Expiry}</small></div></div><div className="my-auto ml-auto"><button className="btn btn-white btn-sm"><i className="far fa-bookmark mr-1"></i> Save</button></div></div></div>
 
-
 					)
 				};
 	</div>
@@ -164,9 +158,7 @@ render() {
 			</div>
 		</div>
 
-
   )
-
 }
 }
 
