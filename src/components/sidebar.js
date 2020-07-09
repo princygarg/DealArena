@@ -13,7 +13,11 @@ class Sidebar extends Component{
               <li>
                 <a href="/userhome?category=Electronics" className="d-flex">
                   <p>Electronics </p>
+<<<<<<< HEAD
                   <p></p>
+=======
+                  <p> </p>
+>>>>>>> 02d775dadb92969b62baa3647ff756dd11cc0478
                 </a>
               </li>
               <li>
@@ -25,7 +29,11 @@ class Sidebar extends Component{
               <li>
                 <a href="/userhome?category=Footwear" className="d-flex">
                   <p>Footwear</p>
+<<<<<<< HEAD
                   <p></p>
+=======
+                  <p> </p>
+>>>>>>> 02d775dadb92969b62baa3647ff756dd11cc0478
                 </a>
               </li>
             </ul>
